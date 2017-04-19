@@ -3,7 +3,7 @@
 #include <pthread.h>
 #include <sys/time.h>
 using namespace std;
-#define START 1
+#define START 0
 #define END 10000
 
 //#define ADD_REMOVE_TEST
@@ -80,7 +80,7 @@ static void *largetTest(void *arg) {
 
 void multiTest(int thrNum) {
 	struct timeval test_start, test_finish;
-	LockFreeHashSet* set = new LockFreeHashSet(10000);
+	LockFreeHashSet* set = new LockFreeHashSet(thrNum * 10000);
 	cout << "start " << thrNum << " thread:  " <<endl;
 	pthread_t thrList[thrNum];
 	gettimeofday(&test_start,0);
@@ -153,6 +153,8 @@ int main() {
 	multiTest(9);
 
 	multiTest(18);
+
+	multiTest(100);
 
 #endif
 }
