@@ -4,9 +4,9 @@
 #include <sys/time.h>
 using namespace std;
 #define START 0
-#define END 10000
+#define END 100000
 
-//#define ADD_REMOVE_TEST
+#define ADD_REMOVE_TEST
 #define MULTI_THREAD_TEST
 
 struct timeval system_start;
@@ -155,6 +155,8 @@ int main() {
 	multiTest(18);
 
 	multiTest(100);
+
+	multiTest(1000);
 
 #endif
 }
